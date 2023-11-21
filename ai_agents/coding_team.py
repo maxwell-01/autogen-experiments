@@ -1,6 +1,6 @@
 ﻿import autogen
 
-from get_autogen_config_list import get_autogen_config_list
+from utils.get_autogen_config_list import get_autogen_config_list
 
 config_list = get_autogen_config_list(
     filter_dict={
@@ -19,13 +19,13 @@ llm_config = {
 }
 
 code_execution_config = {
-    "work_dir": "coding-team-output",
-    "use_docker": "faucet/python3",
+    "work_dir": "autogen-outputs/coding-team-output",
+    "use_docker": "python:3",
 }
 
 product_manager = autogen.AssistantAgent(
     name="product_manager",
-    system_message="You will help break down the initial idea into a well scoped requirement for the software_developer; Do not involve in future conversations or error fixing.",
+    system_message="You will help break down the initial idea into a well scoped requirement for the software_developer; Do not involve in future conversations or error fixing. Reply 'TERMINATE' when you are happy that the software meets the requirements.",
     llm_config=llm_config,
 )
 software_developer = autogen.AssistantAgent(
@@ -57,6 +57,3 @@ def ask_coding_team(message):
         message=message,
     )
     return user_proxy.last_message()["content"]
-
-
-ask_coding_team("create a calculator app that I can run on my pc with a visual user interface eg include buttons.")

@@ -4,7 +4,7 @@ import memgpt.autogen.memgpt_agent as memgpt_autogen
 import memgpt.presets as presets
 from memgpt.persistence_manager import InMemoryStateManager
 
-from get_autogen_config_list import get_autogen_config_list
+from utils.get_autogen_config_list import get_autogen_config_list
 
 config_list = get_autogen_config_list(
     filter_dict={
