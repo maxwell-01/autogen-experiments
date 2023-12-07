@@ -4,7 +4,7 @@ import memgpt.autogen.memgpt_agent as memgpt_autogen
 import memgpt.presets as presets
 from memgpt.persistence_manager import InMemoryStateManager
 
-from utils.get_autogen_config_list import get_autogen_config_list
+from utils.get_LLM_configs import get_autogen_config_list
 
 config_list = get_autogen_config_list(
     filter_dict={
@@ -19,15 +19,17 @@ user_proxy = autogen.UserProxyAgent(
     code_execution_config={"last_n_messages": 2, "work_dir": "groupchat"},
 )
 
-persona = "I\'m a 10x engineer at a FAANG tech company."
+file_to_load = 'memgpt/example-data/GHYS-Holiday-wiki.pdf'
+
+persona = "I\'m a 10x researcher at a FAANG tech company."
 human = "I\'m a team manager at a FAANG tech company."
 interface = autogen_interface.AutoGenInterface() # how MemGPT talks to AutoGen
 persistence_manager = InMemoryStateManager()
 memgpt_agent = presets.use_preset(presets.DEFAULT, 'gpt-3.5-turbo-1106', persona, human, interface, persistence_manager)
 
-# MemGPT coder
+# MemGPT assistant
 coder = memgpt_autogen.MemGPTAgent(
-    name="MemGPT_coder",
+    name="MemGPT_assistant",
     agent=memgpt_agent,
 )
 

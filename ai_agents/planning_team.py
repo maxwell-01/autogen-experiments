@@ -1,6 +1,5 @@
 ﻿import autogen
-
-from utils.get_autogen_config_list import get_autogen_config_list
+from utils.get_LLM_configs import get_autogen_config_list
 
 config_list = get_autogen_config_list(
     filter_dict={
