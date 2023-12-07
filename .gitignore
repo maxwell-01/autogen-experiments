@@ -290,3 +290,4 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/python,jetbrains+all,windows
 /llm_config.json
 /memgpt/configure-memgpt.ps1
+/autogen-outputs/

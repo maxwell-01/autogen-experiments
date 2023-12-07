@@ -12,6 +12,7 @@ Create your environment variables
 OPENAI_API_KEY=sk-api_key_here
 AZURE_OPENAI_API_KEY=api_key_here
 AZURE_OPENAI_API_BASE=azure_api_base_url_here
+AZURE_OPENAI_VERSION="..."
 ```
 
 You can add additional models to get_autogen_config_list.py, be sure to add any additional api keys or urls to 
