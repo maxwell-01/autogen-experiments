@@ -38,14 +38,13 @@ user_proxy = autogen.UserProxyAgent(
 memgpt_agent = create_memgpt_autogen_agent_from_config(
     "MemGPT_agent",
     llm_config=llm_config_memgpt,
-    system_message=f"I am a 10x researcher who checks the memory and answers careful methodically explaining your reasoning."
-                   f"You are participating in a group chat with a user ({user_proxy.name}).",
+    system_message=f"Load data from your archive and answer questions about Ghyston, a technology company in Bristol. I am a 10x researcher who checks the memory and answers careful methodically explaining your reasoning. You are participating in a group chat with a user ({user_proxy.name}).",
     interface_kwargs=interface_kwargs,
-    default_auto_reply="...",  # Set a default auto-reply message here (non-empty auto-reply is required for LM Studio)
+    # default_auto_reply="Please summarise",  # Set a default auto-reply message here (non-empty auto-reply is required for LM Studio)
 )
-# NOTE: you need to follow steps to load document first: see https://memgpt.readthedocs.io/en/latest/autogen/#loading-documents
-memgpt_agent.load_and_attach(mem_gpt_store_name, "directory", force=True, input_dir=directory_to_load, recursive=True)
-
+# load new files to a store name or attach that store name
+# memgpt_agent.load_and_attach(mem_gpt_store_name, "directory", force=True, input_dir=directory_to_load, recursive=True)
+# memgpt_agent.attach(mem_gpt_store_name)
 
 def ask_memgpt_agent(message):
     user_proxy.initiate_chat(
@@ -55,4 +54,4 @@ def ask_memgpt_agent(message):
     return user_proxy.last_message()["content"]
 
 
-ask_memgpt_agent("What is the holiday policy at Ghyston?")
+ask_memgpt_agent("How are holidays calculated for part-time employees at Ghyston, load data from your archive.")

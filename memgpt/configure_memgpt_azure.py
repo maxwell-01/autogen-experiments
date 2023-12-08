@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 
 def configure_memgpt():
-    # Define your environment variables
+    # Run this and then paste the contents of the created file into powershell
     load_dotenv()
     env_vars = {
         "AZURE_OPENAI_KEY": os.getenv("AZURE_OPENAI_API_KEY"),

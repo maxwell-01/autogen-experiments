@@ -20,7 +20,7 @@ def get_autogen_config_list(filter_dict):
                 "model": "gpt-35-turbo-1106",
                 "api_type": "azure",
                 "api_key": os.getenv("AZURE_OPENAI_API_KEY"),
-                "api_base": os.getenv("AZURE_OPENAI_API_BASE"),
+                # "api_base": os.getenv("AZURE_OPENAI_API_BASE"),
                 "base_url": os.getenv("AZURE_OPENAI_API_BASE"),
                 "api_version": os.getenv("AZURE_OPENAI_VERSION")
             },
@@ -28,7 +28,7 @@ def get_autogen_config_list(filter_dict):
                 "model": "gpt-4-azure",
                 "api_type": "azure",
                 "api_key": os.getenv("AZURE_OPENAI_API_KEY"),
-                "api_base": os.getenv("AZURE_OPENAI_API_BASE"),
+                "base_url": os.getenv("AZURE_OPENAI_API_BASE"),
                 "api_version": os.getenv("AZURE_OPENAI_VERSION")
             }
         ]
